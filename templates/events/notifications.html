@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block head_title %}{% trans "Contact" %}{% endblock %}
+<style>
+</style>
+
+<body >
+  <br/><br/><br/>
+  <div class="row" style="min-height:100%;max-width:100%;">
+    <div class="col-md-3"></div>
+    <div class="col-sm-6">
+      {% if not confirm_message %}
+      <h1>{% trans "Create your Notification" %}</h1>
+      {% endif %}
+      <br>
+      {% if confirm_message %}
+      <br>
+      <h1><strong>{{ title }}</strong></h1>
+      <br>
+      <h3>{{ confirm_message }}</h3>
+      {% endif %}
+      {% if form %}
+      <form method = 'POST' action = ''> {% csrf_token %}
+        {{ form|crispy }}
+        <input type = "submit" value = 'Submit' class = 'btn btn-primary'/>
+      </form>
+      {% endif %}
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</body>
+
+{% endblock content %}

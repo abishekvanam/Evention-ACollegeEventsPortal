@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+  <br>
+
+  <br><br><br><br>
+  <div class="row" style="min-height:100%;max-width:100%;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h1>Sign Up</h1>
+
+      <!--    <p>Already have an account? Then please <a href="/accounts/login/">sign in</a>.</p>
+<!--    <form class="signup" id="signup_form" method="post" action="/accounts/signup/">
+-->
+      <p>Already have an account? Then please <a href="{% url 'logins:login_view' %}">sign in</a>.</p>
+
+      <form class="signup" id="signup_form" method="post" action="{% url 'logins:signup_view' %}">
+
+        {% csrf_token %}
+
+
+
+        <div id="div_id_username" class="form-group">
+
+          <label for="id_username" class="col-form-label  requiredField">
+                Username<span class="asteriskField">*</span>
+            </label>
+
+
+
+
+
+
+
+
+          <div class="">
+            <input type="text" name="usernamee" placeholder="Username" autofocus="autofocus" minlength="5" maxlength="150" class="textinput textInput form-control" required="" id="id_username">
+
+          </div>
+
+
+        </div>
+
+        <div id="div_id_email" class="form-group">
+
+          <label for="id_email" class="col-form-label  requiredField">
+                E-mail<span class="asteriskField">*</span>
+            </label>
+
+          <div class="">
+            <input type="email" name="emaill" placeholder="E-mail address" class="textinput textInput form-control" required="" id="id_email">
+
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col">
+
+            <div id="div_id_first_name" class="form-group">
+
+              <label for="id_first_name" class="col-form-label ">
+                First name
+            </label>
+
+              <div class="">
+                <input type="text" name="first_namee" maxlength="30" class="textinput textInput form-control" id="id_first_name">
+
+              </div>
+
+            </div>
+
+
+          </div>
+          <div class="col">
+
+            <div id="div_id_last_name" class="form-group">
+
+              <label for="id_last_name" class="col-form-label ">
+                Last name
+            </label>
+
+              <div class="">
+                <input type="text" name="last_namee" maxlength="150" class="textinput textInput form-control" id="id_last_name">
+
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+
+            <div id="div_id_user_type" class="form-group">
+
+              <label for="id_user_type" class="col-form-label  requiredField">
+                Register as <span class="asteriskField">*</span>
+            </label>
+
+              <div class="">
+                <select name="user_typee" class="select form-control" id="id_user_type">
+  <option value="part">Participant</option>
+
+  <option value="org">Organiser</option>
+
+  <option value="def">Default</option>
+
+</select>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col">
+
+            <div id="div_id_phone" class="form-group">
+
+              <label for="id_phone" class="col-form-label ">
+                Phone Number
+            </label>
+
+              <div class="">
+                <input type="number" name="phonee" class="numberinput form-control" id="id_phone">
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div id="div_id_password1" class="form-group">
+
+          <label for="id_password1" class="col-form-label  requiredField">
+                Password<span class="asteriskField">*</span>
+            </label>
+          <div class="">
+            <input type="password" name="passwordd1" placeholder="Password" class="textinput textInput form-control" required="" id="id_password1">
+
+          </div>
+
+
+        </div>
+
+        <div id="div_id_password2" class="form-group">
+
+          <label for="id_password2" class="col-form-label  requiredField">
+                Password (again)<span class="asteriskField">*</span>
+            </label>
+
+          <div class="">
+            <input type="password" name="password2" placeholder="Password (again)" class="textinput textInput form-control" required="" id="id_password2">
+
+          </div>
+
+
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn btn-primary">Sign Up »</button>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+
+{% endblock %}

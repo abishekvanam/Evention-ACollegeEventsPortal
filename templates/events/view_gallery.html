@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container" style="min-height:100%;">
+
+  <br><br><br>
+  
+  <div class="container gallery-container">
+    <h1 class="text-center">Gallery</h1>
+    <br>
+    <h4 class="page-description text-center">{{event.name}}</h4>
+    <br><br>
+    <div class="tz-gallery">
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <div class="card">
+            <a class="lightbox" href="{% static 'images/image1.jpg' %}">
+              <img src="{% static 'images/image1.jpg' %}" alt="Park" class="card-img-top">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <a class="lightbox" href="{% static 'images/image2.jpg' %}">
+              <img src="{% static 'images/image2.jpg' %}" alt="Park" class="card-img-top">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <a class="lightbox" href="{% static 'images/image3.jpg' %}">
+              <img src="{% static 'images/image3.jpg' %}" alt="Park" class="card-img-top">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

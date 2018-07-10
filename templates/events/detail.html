@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ instance.name }}{% endblock head_title %}
+{% block content %}
+  <br/><br/><br/>
+  <div class="row" style="min-height:100%;max-width:100%;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <a class="lead">Name: </a><a>{{ event.name|linebreaks }}</a><br>
+      <a class="lead">Club: </a><a>{{ event.club|linebreaks }}</a><br>
+      <a class="lead">Description: </a><a>{{ event.description|linebreaks }}</a><br>
+      <a class="lead">Date: </a><a>{{ event.date|linebreaks }}</a><br>
+      <a class="lead">Organiser: </a><a>{{ event.organiser|linebreaks }}</a><br>
+      <a class="lead">Contact: </a><a>{{ event.contact|linebreaks }}</a><br>
+      {% if event.image %}
+        <img src='{{ event.image.url }}' class="img-responsive"/>
+      {% endif %}
+      <br><br><br>
+      <div class="row">
+        <div class="col-md-3">
+          <input type="submit" class="btn btn-primary btn-lg btn-block" onclick="location.href='{% url "events:participate" event.tag %}'" value="Partictpate" ></input>
+        </div>
+          <div class="col-md-3">
+            <input type="submit" class="btn btn-primary btn-lg btn-block" onclick="location.href='{% url "events:view_participants" event.tag %}'" value="View Participants" ></input>
+          </div>
+          <div class="col-md-3">
+            <input type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='{% url "events:create_notification" event.tag %}'" value="Create Notification" /></input>
+          </div>
+          <div class="col-md-3">
+            <input type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='{% url "events:view_gallery" event.tag %}'" value="View Gallery" /></input>
+          </div>
+      </div>
+      <br><br><br>
+    </div>
+    <div class="col-md-3"></div>
+
+  </div>
+
+{% endblock content %}
+{% block footer %}
+<footer class="footer" style="position: fixed;bottom:0em;background-color: black">
+  <div class="container">
+    <span class="text-muted">&copy; Copyright 2018.</span>
+  </div>
+</footer>
+{% endblock footer %}
+onclick="location.href='{% url "events:view_participants" event.tag %}'

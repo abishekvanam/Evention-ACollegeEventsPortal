@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block head_title %}{{ instance.name }}{% endblock head_title %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+{% if list_of_events %}
+<ul>
+{% for event in list_of_events %}
+<li>
+    <h3>
+<a href="{% url 'events:detail_of_event' event.id %}">{{event.name}}</a>
+    </h3>
+</li>
+<!--
+<a href="">{{event.name}}</a>
+-->
+{% endfor %}
+</ul>
+{% else %}
+<h2>No events to display under this club!!!</h2>
+{% endif %}
+<!--
+  <button data-text="<<Back" onclick="window.location.href='{% url 'events:select_club' %}'">Go Back</button>-->
+<button onclick="window.location.href='{% url 'events:select_club' %}'" class="btn btn-primary">Go back</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+*{
+  font-family: 'Quicksand', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+a.nav-link {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+html, body {
+  font-family: 'Nunito';
+  height: 100%;
+}
+
+.body-wrapper{
+  min-height: 100%;
+  position: relative;
+}
+
+.body-container{
+  height: 100%;
+}
+
+.footer-container{
+  height: 60px;
+  background-color: black;
+  line-height: 3.5;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+::-webkit-scrollbar{
+  width: 8px;
+  background-color: red;
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background-color: #a6a6a6;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-track{
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.sticky-top { top: 0em; }

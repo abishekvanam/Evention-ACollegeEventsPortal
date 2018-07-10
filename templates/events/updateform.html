@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!-- Only organiser can update the event -->
+{% if request.user == organiser_of_event %}
+  <br/><br/><br>
+  <div class="row" style="min-height:100%;max-width:100%;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form method = 'POST' action="#">{% csrf_token %}
+        {{ form.name|as_crispy_field }}
+        {{ form.description|as_crispy_field }}
+        {{ form.organiser|as_crispy_field }}
+        {{ form.date|as_crispy_field }}
+        {{ form.contact|as_crispy_field }}
+        <br>
+        <input type='submit' value='Update Event' class="btn btn-primary"/>
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  {% else %}
+  <br><br>
+  <div class="card text-center">
+    <div class="card-header">
+      UPDATE ERROR
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">You are not organiser of this event.</h5>
+      <p class="card-text">An event can be updated only by its organiser.</p>
+      <button class="btn btn-primary" onclick="goBack()">Go back</button>
+    </div>
+  </div>
+{% endif %}
+{% endblock content %}

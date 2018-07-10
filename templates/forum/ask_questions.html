@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row" style="min-height:100%;max-width:100%;">
+  <div class="col-md-2" ></div>
+  <div class="col-md-8">
+    <form id="myform" action="{% url 'forum:ask_questions' %}" class="fs-form fs-form-full" autocomplete="off" method="POST">
+      {% csrf_token %}
+      <br><br>
+      <center>
+        <h2>Enter the question:</h2>
+        <input type="text" class="form-control" id="q2" name="question" placeholder="Enter your question"/>
+        <br><br>
+        <button class="btn btn-primary" type="submit" %}>Ask!</button>
+      </center>
+    </form>
+  </div>
+</div>
+{% endblock content%}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block content %}
+<br>
+<div class="container" style="min-height:100%;">
+  <div class="jumbotron">
+    <h1>About the website</h1>
+    <hr class="my-4">
+    <p class="lead">College Events website is a web-application which displays the current departmental, club and community events happening at Vasavi College of Engineering. The application is responsive, robust and reliable and is developed to overcome the obfuscation
+      in the current college website and enhance the experience of its users.</p><br/>
+    <p class="lead">The project is divided in three applications - accounts, events and forum. The accounts application handles all the functions related to user login, signup, password validation, sessions handling, email confirmation, etc. This is provided by allauth
+      library, which is installed as an application in this project. The events application deals with the events. This application allows authenticated users to create, view, update and delte an event. Every event is associated with an organiser. The
+      user has an option to get notification to their email whenever there is an update for an event he chooses. The forum app is a section where users can ask questions and give answers to an event. Only verified users are allowed to post questions and
+      answers.
+    </p><br/>
+    <p class="lead">The back-end of the web-application is developed using Django2.0 framework and few utility functions were written in Python3. The database used for the project is SQLite, which is the default database for Django. The front-end of the web-application
+      is developed using Bootstrap4, HTML5 and CSS3.
+    </p><br/>
+  </div>
+</div>
+<div class="card text-center">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body">
+    <h4 class="card-title"> Source code </h4>
+    <p class="card-text">Link to the Github repository of the project</p>
+    <a href="https://github.com/1919kiran/College-Events-A" class="btn btn-primary" target="_blank">Visit</a>
+  </div>
+</div>
+<br>
+<br>
+<h4 class="text-center">Developers</h4>
+<hr>
+<br>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Sai Kiran</h5>
+        <p class="card-text"><i>BE 3/4-IT 1602-15-737-039</i></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Abishek Vanam</h5>
+        <p class="card-text"><i>BE 3/4-IT 1602-15-737-002</i></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Govind Goud</h5>
+        <p class="card-text"><i>BE 3/4-IT 1602-15-737-013</i></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+<br><br> {% endblock content %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="container" style="min-height:100%">
+    <center>
+      <h1>Signin</h1>
+    </center>
+    <br>
+    <br>
+
+    <center>
+      <h5><p>Doesn't have an account? Then please <a href="{% url 'logins:signup_view' %}">sign up</a>.</p>
+  </h5>
+    </center>
+
+    <br>
+
+    <form class="site-form" action="{% url 'logins:login_view' %}" method="POST">
+      <!--TO logins/signup_view-->
+
+      {% csrf_token %}
+      <!--    <div class="col-md-3"></div>
+    <div class="col-md-6">
+  -->
+      <center>
+      <h2>
+        <div class="col-md-6">
+          {{form|crispy}}
+        </div>
+      </h2>
+      </center>
+      {% if request.GET.next %}
+      <input type="hidden" name="next" value="{{request.GET.next}}"> {% endif %}
+      <!--</div>-->
+      <br>
+      <br>
+      <center>
+
+        <button type="submit" class="btn btn-primary">Sign In »</button>
+      </center>
+    </form>
+  </div>
+  {% if name %} {{ name }} {% endif %}
+
+{% endblock %}

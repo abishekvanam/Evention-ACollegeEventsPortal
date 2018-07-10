@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row" style="min-height:100%;max-width:100%;">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <br><br><br>
+    <h1>{{ question.question_text }}</h1>
+    <p class="text-right">asked by: {{question.asked_by}}</p>
+    <p class="text-right">on: {{question.question_pub_date}}</p>
+    <br><br>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    {% if answers %}
+
+    <ul>
+    {% for answer in answers %}
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container" >
+        <p class="lead">{{ answer.answer_text }}</p>
+        <hr class="my-4">
+        <p class="text-right">answered by: {{answer.answered_by}}</p>
+        <p class="text-right">on: {{answer.answer_pub_date}}</p>
+      </div>
+    </div>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <h2>No answers to display</h2>
+    {% endif %}
+
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1" class="lead">Enter your answer</label>
+      <textarea name="answer" class="form-control" form="usrform" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your answer...!"></textarea>
+    </div>
+    <form action="{% url 'forum:display_ans' question.id %}" id="usrform" method="POST"> <!--{#question.id#}save_answers-->
+      {% csrf_token %}
+      <input type="submit" class="btn btn-primary">
+    </form>
+    <br>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+{% endblock content %}
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <p class="lead">{{ answer.answer_text }}</p>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br>
+<div class="row" style="min-height:100%;max-width:100%;">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="title">Questions</h1>
+    <br><br>
+    <center>
+      {% if all_questions %}
+      <ul class="list-group">
+        {% for question in all_questions %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <h4><a href="{% url 'forum:display_ans' question.id %}">{{question.question_text}}</a></h4>
+          <!--<p class="text-right">asked by: {{question.asked_by}}</p>-->
+          <p class="text-right">on: {{question.question_pub_date}}</p>
+        </li>
+        {%endfor%}
+      </ul>
+      {% else %}
+      <h1>No questions to display!!!</h1>
+      {% endif %}
+
+    </center>
+
+  </div>
+  <div class="col-md-2"></div>
+</div>
+{% endblock content%}
+
+<ul class="list-group">
+  {% for question in all_questions %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <h3><a href="{% url 'forum:display_ans' question.id %}">{{question.question_text}}</a></h3>
+    <span class="badge badge-primary badge-pill">14</span>
+  </li>
+  {%endfor%}
+</ul>

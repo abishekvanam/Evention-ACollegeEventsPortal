@@ -1,0 +1,11 @@
+<h1>SignUp</h1>
+<form class="site-form" action="" method="POST"><!--TO logins/signup_view-->
+
+    {% csrf_token %}
+    <input type="text" name="namee" required>
+    {{form.as_p}}
+    <h4>Roll Number:</h4>
+    <input type="text" name="rnum" value="Enter Roll Number:" required>
+    <input type="submit" value="Signup">
+
+</form>

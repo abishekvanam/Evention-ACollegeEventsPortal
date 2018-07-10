@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><meta charset="utf-8">
+<title>Signup</title>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+<link rel="shortcut icon" type="image/ico" href="/static/images/favicon.ico">
+
+</head>
+
+
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/events/">
+    <img src="/static/images/logo.png" width="200" height="40">
+  </a>
+  <div class="collapse navbar-collapse" id="nav-content">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/events/">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/events/about/">About</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/forum/">Forum</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/contact/">Contact</a>
+      </li>
+    </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <!--<li class="nav-item active"><a class="nav-link" href="/accounts/login/">Signin</a></li>
+-->
+          <li class="nav-item active"><a class="nav-link" href="{% url 'logins:login_view' %}">Signin</a></li>
+      </ul>
+
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<center>
+    <h1>Login</h1>
+</center>
+<br>
+<br>
+
+<center>          <h5><p>Doesn't have an account? Then please <a href="{% url 'logins:signup_view' %}">sign up</a>.</p>
+</h5>
+</center>
+
+<br>
+
+<!--    <form class="site-form" action="{% url 'logins:login_view' %}" method="POST"><!--TO logins/signup_view-->
+    <form class="site-form" action="{% url 'logins:login_view' %}" method="POST"><!--TO logins/signup_view-->
+
+    {% csrf_token %}
+<!--    <div class="col-md-3"></div>
+  <div class="col-md-6">
+-->
+        <center>
+          <h2>
+    {{form|crispy}}
+          </h2>
+        </center>
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{request.GET.next}}">
+        {% endif %}
+  <!--</div>-->
+        <br>
+        <br>
+        <center>
+
+      <button type="submit" class="btn btn-primary">Sign In »</button>
+        </center>
+    </form>
+{% if name %}
+{{ name }}
+{% endif %}
+</body>
+</html>

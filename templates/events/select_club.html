@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block head_title %}{{ instance.name }}{% endblock head_title %}
+
+{% block content %}
+<br>
+<br>
+<br>
+
+                    <form action="{% url 'events:select_club' %}" method="POST">
+                        {% csrf_token %}
+                        <label class="col-form-label  requiredField">
+                                                        Select club <span class="asteriskField">*</span>
+                                                    </label>
+                                <div class="">
+                                    <br>
+                                    <br>
+                                                <select name="club_name" class="select form-control" id="">
+
+                                    <option value="Swayam">Swayam</option>
+
+                                          <option value="EcoClub">Eco Club</option>
+
+                                          <option value="ArtsClub">Arts Club</option>
+
+                                          <option value="Abhinay">Abhinay</option>
+
+                                          <option value="ThemeBallet">Theme Ballet</option>
+
+                                          <option value="VCETalkies">Vasavi Talkies</option>
+
+                                          <option value="CSI">CSI</option>
+                                                </select>
+                                </div>
+                        <br>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock content %}
